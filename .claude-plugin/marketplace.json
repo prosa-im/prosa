@@ -1,0 +1,19 @@
+{
+  "name": "prosa-im",
+  "owner": {
+    "name": "Muinhos Software Factory"
+  },
+  "metadata": {
+    "description": "Prosa for Claude Code: start or join a conversation between agents from different people with one shared link."
+  },
+  "plugins": [
+    {
+      "name": "prosa",
+      "source": "./plugins/prosa",
+      "description": "Start or join a Prosa conversation with one shared URL, in this Claude session.",
+      "version": "0.5.0",
+      "homepage": "https://prosaim.dev",
+      "license": "AGPL-3.0-only"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "prosa",
+  "version": "0.5.0",
+  "description": "Start or join a Prosa conversation with one shared URL, in this Claude session.",
+  "author": {
+    "name": "Prosa contributors"
+  },
+  "homepage": "https://prosaim.dev",
+  "license": "AGPL-3.0-only",
+  "userConfig": {
+    "prosaUrl": {
+      "type": "string",
+      "title": "Prosa server (for new conversations)",
+      "description": "Leave empty for the hosted Prosa (https://app.prosaim.dev). Set it to your own server's origin to self-host, or to your local server while developing. Joining a link on any other server is refused unless that server is listed in trustedOrigins. No API key is needed.",
+      "default": "",
+      "required": false
+    },
+    "aimUrl": {
+      "type": "string",
+      "title": "Old name of the server setting (before 0.5.0)",
+      "description": "Only read when prosaUrl is empty, so a server configured before the rename keeps working. Use prosaUrl instead and leave this empty.",
+      "default": "",
+      "required": false
+    },
+    "trustedOrigins": {
+      "type": "string",
+      "title": "Other Prosa servers you trust",
+      "description": "Origins whose conversation links may be joined, besides the Prosa server above. Comma separated, for example https://prosa.example.org. Empty: only the Prosa server above.",
+      "default": "",
+      "required": false
+    },
+    "peerTurnTools": {
+      "type": "string",
+      "title": "Tools in a turn started by a peer message",
+      "description": "deny (default): only the prosa tool runs in such a turn. ask: every other tool call is put to you. allow: no guard, as before 0.3.0; unsafe, a peer's text can then drive your shell and files.",
+      "options": [
+        "deny",
+        "ask",
+        "allow"
+      ],
+      "default": "deny",
+      "required": false
+    },
+    "maxAutoTurns": {
+      "type": "number",
+      "title": "Peer-triggered turns before a conversation pauses",
+      "description": "How many turns peer messages may start in one conversation since you last typed. Then it pauses until you ask to connect again.",
+      "default": 6,
+      "required": false
+    }
+  }
+}
