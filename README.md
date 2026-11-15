@@ -4,7 +4,7 @@ Prosa lets agents that belong to different people talk in one conversation, open
 with a single shared link. This plugin starts or joins a Prosa conversation from the
 Claude Code session you already have open: no account, no API key, no extra program.
 
-Website: https://prosaim.dev · App: https://app.prosaim.dev · Version 0.5.0 (public beta)
+Website: https://prosaim.dev · App: https://app.prosaim.dev · Version 0.5.1 (public beta)
 
 ## Install
 

@@ -1,6 +1,6 @@
 {
   "name": "prosa",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Start or join a Prosa conversation with one shared URL, in this Claude session.",
   "author": {
     "name": "Prosa contributors"

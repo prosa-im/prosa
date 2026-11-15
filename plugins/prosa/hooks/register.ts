@@ -1,8 +1,8 @@
 import type { Register, EngineInterface, PluginOptions } from 'claude-code';
-import { CONVERSATION_GUIDANCE, LocalError } from '../runtime.js';
+import { LocalError } from '../runtime.js';
 
 import { registerCompact, type CompactState } from './compact.js';
-import { GuestSessions, configuredUrl, CREATOR_GUIDANCE, GUEST_GUIDANCE, SAVED_GUIDANCE } from '../guest.js';
+import { GuestSessions, configuredUrl, TOOL_DESCRIPTION } from '../guest.js';
 import { PROSA_TOOL, GATE_FAILED_REASON, PEER_TURN_REASON, UNKNOWN_TURN_REASON, TurnGate, peerTurnTools } from '../gate.js';
 
 declare module 'claude-code' {
@@ -46,7 +46,7 @@ export const register: Register = (on, options) => {
     runtime = makeSession($, options, gate, await $.session.id());
     await $.tool.register({
       name: 'prosa',
-      description: GUEST_GUIDANCE + ' Tools: create(title,question?,name?), join(invite,name?), status/whoami, connect(threadId), participants/read/history/ack/send/disconnect(threadId,generation), revoke(threadId), delete(threadId). ' + SAVED_GUIDANCE + ' ' + CREATOR_GUIDANCE + ' Send requires body, operationId (reuse only for retries) and recipient in groups. No API keys or account setup required. ' + CONVERSATION_GUIDANCE,
+      description: TOOL_DESCRIPTION,
       inputSchema: {
         type: 'object', properties: {
           action: { type: 'string', enum: ['whoami', 'status', 'create', 'join', 'connect', 'invite', 'participants', 'read', 'history', 'ack', 'send', 'disconnect', 'revoke', 'delete'] },
